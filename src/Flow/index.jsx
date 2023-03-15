@@ -73,10 +73,12 @@ const Flow = forwardRef((props, ref) => {
       updateNode();
     }
   };
-
+  const getNodes = () => {
+    console.log(objRef.conditionNodes);
+  };
   // 获取节点
   const onSelectNode = (pRef, objRef) => {
-    setCurrentNode(objRef)
+    setCurrentNode(objRef);
   };
 
   // 打开审批人Drawer
@@ -122,6 +124,12 @@ const Flow = forwardRef((props, ref) => {
       >
         <SetCondition formItems={props?.formItems || []} />
       </MyDrawer>
+      <div
+        onClick={() => getNodes()}
+        style={{ top: '100px', zIndex: 100, position: 'absolute' }}
+      >
+        获取节点
+      </div>
     </OpContext.Provider>
   );
 });
